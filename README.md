@@ -16,4 +16,7 @@ We've uploaded the game onto itch.io for easy access. Have fun! : https://the-nu
 
 
 ## Gallery
-https://tms.ogpc.info/api/attachment/85660eac-be10-4d3e-ae0e-b8d1d710026c/content?maxwidth=1280&maxheight=1024&bgcolor=white![image](https://github.com/user-attachments/assets/64765a70-b2cb-4877-b852-937042013ccc)
+
+<img width="1440" alt="content" src="https://github.com/user-attachments/assets/940bce1c-34a9-43d0-b4a5-d7adc83d98a2">
+<img width="1430" alt="content2" src="https://github.com/user-attachments/assets/585601e1-99ca-4fe6-a200-eeafe94510d4">
+<img width="1420" alt="content3" src="https://github.com/user-attachments/assets/b0e4cc2a-bcb7-45f1-9cdf-331bb6e5ee97">
