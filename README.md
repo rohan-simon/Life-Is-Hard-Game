@@ -15,3 +15,5 @@ Developed by Team Eclipse, led by Rohan Simon Shanthanu.
 We've uploaded the game onto itch.io for easy access. Have fun! : https://the-null-value.itch.io/life-is-hard-in-the-sea
 
 
+## Gallery
+https://tms.ogpc.info/api/attachment/85660eac-be10-4d3e-ae0e-b8d1d710026c/content?maxwidth=1280&maxheight=1024&bgcolor=white![image](https://github.com/user-attachments/assets/64765a70-b2cb-4877-b852-937042013ccc)
