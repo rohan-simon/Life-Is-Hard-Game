@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/plastic_outline.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Actors/Obstacles/obstacle.gd" type="Script" id=2]
+[ext_resource path="res://Boxes/Hitbox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "beer_move"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 23.1081
+height = 40.8762
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 7.69382
+
+[node name="BeerPacket" type="KinematicBody2D"]
+collision_layer = 2147483648
+collision_mask = 0
+script = ExtResource( 2 )
+type = "beer_packet"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.63385, 22.2847 )
+scale = Vector2( 1.4, 1.3 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 2
+
+[node name="BeerAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/beer_move = SubResource( 1 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 3 )]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 9.77297, -6.04973 )
+rotation = 1.3247
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 9.79027, -6.47351 )
+shape = SubResource( 3 )
+
+[editable path="Hitbox"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/passive_fish_real.png" type="Texture" id=1]
+[ext_resource path="res://Background Pieces/Background Fishes/BackgroundFish.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fish_swim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[node name="FishYellow" type="StaticBody2D"]
+position = Vector2( 4.29874, 9.18367 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -18.2192, 27.8599 )
+texture = ExtResource( 1 )
+flip_h = true
+vframes = 4
+hframes = 4
+frame = 4
+
+[node name="FishAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fish_swim = SubResource( 1 )

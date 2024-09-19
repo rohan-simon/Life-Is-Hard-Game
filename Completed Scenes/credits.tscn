@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Completed Scenes/credits.gd" type="Script" id=2]
+[ext_resource path="res://Assets/enter_sound_real.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="Credits" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1000.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="RootCenterContainer" type="CenterContainer" parent="."]
+margin_right = 1000.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootCenterContainer"]
+margin_left = 277.0
+margin_top = 39.0
+margin_right = 723.0
+margin_bottom = 561.0
+custom_constants/separation = 50
+
+[node name="CenterContainer1" type="CenterContainer" parent="RootCenterContainer/VBoxContainer"]
+margin_right = 446.0
+margin_bottom = 434.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootCenterContainer/VBoxContainer/CenterContainer1"]
+margin_right = 446.0
+margin_bottom = 434.0
+custom_constants/separation = 26
+
+[node name="Dev" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer1/VBoxContainer"]
+margin_right = 446.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 1 )
+text = "Developer:
+Rohan Simon Shanthanu"
+
+[node name="Anim" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer1/VBoxContainer"]
+margin_top = 115.0
+margin_right = 446.0
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 2 )
+text = "Artist/Animator:
+Siddhartha Pachikara"
+
+[node name="Background" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer1/VBoxContainer"]
+margin_top = 230.0
+margin_right = 446.0
+margin_bottom = 319.0
+custom_fonts/font = SubResource( 3 )
+text = "Background:
+Noelle Fandel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer1/VBoxContainer"]
+margin_top = 345.0
+margin_right = 446.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 4 )
+text = "Music:
+Peter B. Helland"
+
+[node name="CenterContainer2" type="CenterContainer" parent="RootCenterContainer/VBoxContainer"]
+margin_top = 484.0
+margin_right = 446.0
+margin_bottom = 522.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootCenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 168.0
+margin_right = 277.0
+margin_bottom = 38.0
+
+[node name="CenterContainer" type="CenterContainer" parent="RootCenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 109.0
+margin_bottom = 38.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootCenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 109.0
+margin_bottom = 38.0
+
+[node name="Arrow" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = ">"
+
+[node name="Option" type="Label" parent="RootCenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 6 )
+text = "BACK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0

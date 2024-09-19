@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/fish_thin_anim.png" type="Texture" id=2]
+[ext_resource path="res://Boxes/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Boxes/PlayerStats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/hit.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fish_still"
+tracks/0/type = "value"
+tracks/0/path = NodePath("pixel_fish:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.4
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("pixel_fish:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 8 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 14
+script = ExtResource( 1 )
+max_speed = Vector2( 12000, 9000 )
+
+[node name="pixel_fish" type="Sprite" parent="."]
+scale = Vector2( 1.4375, 1.5 )
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 3
+
+[node name="animate_sprite" type="AnimationPlayer" parent="."]
+anims/fish_still = SubResource( 1 )
+anims/normal_move = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2( 1.07016, 1.02755 )
+polygon = PoolVector2Array( 5, -14.4, 5, -12.8, 11.6, -6.2, 14.9511, -0.848104, 25, -13.2, 25, -12.1, 28, -10.1, 14.9511, 0, 22.4266, -0.848104, 25.2, 1.1, 22.4266, 6.93737, 26.6, 11, 14.9511, -0.848104, 29.9021, 7.78548, 22.4266, 7.78548, 13.4, 11.4, 6.9, 19, 7.47554, 14.7228, -7.47554, 14.7228, -7.47554, 6.93737, -9, 20.4, -9, 16.8, -11.8, 14, -15.3, 14, -26, 10.4, -26, 8.5, -30.2, 0, -26.9, 0, -20.9, -7, -18.5, -7, -13, -10.1, -13, -15.1, -10, -17.1, -10, -19.9 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -2, 3 )
+shape = SubResource( 3 )
+
+[node name="PlayerStats" parent="." instance=ExtResource( 4 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="player_dead" from="PlayerStats" to="." method="_on_PlayerStats_player_dead"]
+
+[editable path="Hurtbox"]

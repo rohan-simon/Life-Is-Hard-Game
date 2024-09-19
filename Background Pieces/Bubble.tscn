@@ -1,0 +1,171 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/bubble.png" type="Texture" id=1]
+[ext_resource path="res://Background Pieces/Bubble.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bubble_burst"
+length = 0.32
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "bubble_disappear"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "bubble_show"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "bubble_still"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "bubble_burst"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "bubble_disappear"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "bubble_form"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "bubble_show"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "bubble_still"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/bubble_burst/node = SubResource( 6 )
+states/bubble_burst/position = Vector2( 663.5, 49.5 )
+states/bubble_disappear/node = SubResource( 7 )
+states/bubble_disappear/position = Vector2( 789.5, 188.5 )
+states/bubble_form/node = SubResource( 8 )
+states/bubble_form/position = Vector2( 290, 49.25 )
+states/bubble_show/node = SubResource( 9 )
+states/bubble_show/position = Vector2( 154.5, 99.5 )
+states/bubble_still/node = SubResource( 10 )
+states/bubble_still/position = Vector2( 464, 55 )
+transitions = [ "bubble_show", "bubble_form", SubResource( 11 ), "bubble_form", "bubble_still", SubResource( 12 ), "bubble_still", "bubble_burst", SubResource( 13 ), "bubble_burst", "bubble_disappear", SubResource( 14 ), "bubble_disappear", "bubble_show", SubResource( 17 ) ]
+start_node = "bubble_show"
+end_node = "bubble_disappear"
+graph_offset = Vector2( -86.5265, 0 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+
+[node name="Bubble" type="StaticBody2D"]
+position = Vector2( 204.408, 38.3265 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 23.663, 41.3036 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 3
+frame = 6
+
+[node name="BubbleAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bubble_burst = SubResource( 1 )
+anims/bubble_disappear = SubResource( 2 )
+anims/bubble_form = SubResource( 3 )
+anims/bubble_show = SubResource( 4 )
+anims/bubble_still = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../BubbleAnimationPlayer")
+active = true
+parameters/playback = SubResource( 16 )
