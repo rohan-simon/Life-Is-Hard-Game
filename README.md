@@ -20,7 +20,11 @@ We've uploaded the game onto itch.io for easy access. Have fun! : https://the-nu
 <img width="1440" alt="content" src="https://github.com/user-attachments/assets/940bce1c-34a9-43d0-b4a5-d7adc83d98a2">
 <img width="1430" alt="content2" src="https://github.com/user-attachments/assets/585601e1-99ca-4fe6-a200-eeafe94510d4">
 <img width="1420" alt="content3" src="https://github.com/user-attachments/assets/b0e4cc2a-bcb7-45f1-9cdf-331bb6e5ee97">
-![content4](https://github.com/user-attachments/assets/198b62d9-486b-48ec-8584-d4e64d20758d)
 <img width="1439" alt="content5" src="https://github.com/user-attachments/assets/892b5b1e-63ed-4575-aace-44492eaf2cfa">
-![content6](https://github.com/user-attachments/assets/7a3960bf-475d-4fdf-b951-53eea8f17bfa)
 <img width="730" alt="content8" src="https://github.com/user-attachments/assets/0c77bcbe-c22f-46d3-b6bb-b7f3abea59eb">
+
+## Trailer
+https://youtu.be/xJwMm6cPb3I
+
+## Making Of
+https://youtu.be/gkGk2gY_Q40
