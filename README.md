@@ -5,7 +5,7 @@ You play as a humble fish who must outlast the dangers of the sea for 3 days. Th
 
 **Won the Judge's Choice Award at the Oregon Game Project Challenge.**
 
-Here were the comments from the judges, industry professionals from Microsoft and various game development firms:
+Here were the comments from the judges - industry professionals from Microsoft and various game development firms:
 
 > "Life Is Hard In The Sea greets you with vibrant visuals and a charismatic protagonist. If you connect with this little fish you might find yourself moved by its persistence. We were impressed by the game’s elegance, well-executed implementation, and lively art and animation. The overall cohesiveness of these elements together moved us to award this recognition. We look forward to seeing what Eclipse and its members do next!"
 
